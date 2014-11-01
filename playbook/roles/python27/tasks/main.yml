@@ -1,0 +1,23 @@
+---
+
+- name: Install System Packages
+  yum: name={{ item }} state=present
+  sudo: yes
+  with_items:
+    #    - gcc-devel
+    - gcc
+    - openssl-devel
+    - git
+    - libxml2-devel
+    - libxslt-devel
+    - db4-devel
+    - db4-devel-static
+
+- name: Check for python 27
+  stat: path=/usr/local/bin/python27
+  register: p27
+
+- include: python27.yml
+  when: p27.stat.exists == False
+
+
