@@ -1,18 +1,5 @@
 ---
 
-- name: Install System Packages
-  yum: name={{ item }} state=present
-  sudo: yes
-  with_items:
-    #    - gcc-devel
-    - gcc
-    - openssl-devel
-    - git
-    - libxml2-devel
-    - libxslt-devel
-    - db4-devel
-    - db4-devel-static
-
 # This should possibly be a module that just check whether python 2.7 is there before doing anything
 - name: Download Python27 source
   get_url: url=http://python.org/ftp/python/2.7.6/Python-2.7.6.tgz dest=/tmp/Python-2.7.6.tgz owner=root group=root force=no
