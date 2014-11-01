@@ -1,0 +1,17 @@
+---
+- name: Setup virtualenv-burrito for glider user
+  sudo: yes
+  sudo_user: dev
+  shell: curl -sL https://raw.githubusercontent.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | /bin/bash
+  args:
+    chdir: /home/dev
+    creates: /home/dev/.venvburrito/startup.sh
+
+- name: Create virtualenv for glider user
+  sudo: yes
+  sudo_user: dev
+  shell: source /home/dev/.venvburrito/startup.sh && mkvirtualenv --no-site-packages --python=/usr/local/bin/python27 dev
+  args:
+    chdir: /home/dev
+    creates: /home/dev/.virtualenvs/dev
+
