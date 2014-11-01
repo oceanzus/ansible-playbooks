@@ -1,0 +1,19 @@
+---
+
+- name: Install Luke's VIM
+  sudo: yes
+  sudo_user: dev
+  git: repo=git://github.com/lukecampbell/vim-folder dest=/home/dev/.vim accept_hostkey=true update=yes
+
+- name: Submodules
+  sudo: yes
+  sudo_user: dev
+  shell: git submodule update
+  args:
+    chdir: /home/dev/.vim
+
+- name: Remove vim-go
+  sudo: yes
+  sudo_user: dev
+  file: path=/home/dev/.vim/bundle/vim-go state=absent
+
