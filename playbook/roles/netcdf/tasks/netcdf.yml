@@ -1,0 +1,16 @@
+---
+
+- name: Install HDF5
+  yum: name=http://www.hdfgroup.org/ftp/HDF5/current/bin/RPMS/hdf5-1.8.13-1.with.szip.encoder.el6.x86_64.rpm state=present
+  sudo: yes
+
+- name: Download NetCDF4 Source Code
+  get_url: url=ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.2.tar.gz dest=/tmp/netcdf-4.3.2.tar.gz force=no
+
+- name: Extract NetCDF4 Source Code
+  command: /bin/tar -zxvf /tmp/netcdf-4.3.2.tar.gz chdir=/usr/local/src creates=/usr/local/src/netcdf-4.3.2/configure
+  sudo: yes
+
+- name: Make and install netcdf
+  shell: ./configure --prefix=/usr/local --enable-netcdf-4 --enable-dap --enable-shared && /usr/bin/make && /usr/bin/make install chdir=/usr/local/src/netcdf-4.3.2/ creates=/usr/local/bin/ncdump
+  sudo: yes

@@ -1,0 +1,7 @@
+---
+- name: Check for NetCDF
+  stat: path=/usr/local/bin/ncdump
+  register: nc
+
+- include: netcdf.yml
+  when: nc.stat.exists == False
