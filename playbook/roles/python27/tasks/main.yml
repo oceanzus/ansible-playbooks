@@ -10,6 +10,9 @@
     - git
     - libxml2-devel
     - libxslt-devel
+    - libcurl-devel
+    - sqlite-devel
+    - readline-devel
     - db4-devel
     - db4-devel-static
 
