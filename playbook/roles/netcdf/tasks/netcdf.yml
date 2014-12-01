@@ -1,7 +1,7 @@
 ---
 
 - name: Install HDF5
-  yum: name=http://www.hdfgroup.org/ftp/HDF5/current/bin/RPMS/hdf5-1.8.13-1.with.szip.encoder.el6.x86_64.rpm state=present
+  yum: name=http://www.hdfgroup.org/ftp/HDF5/current/bin/RPMS/hdf5-1.8.14-1.with.szip.encoder.el6.x86_64.rpm state=present
   sudo: yes
 
 - name: Download NetCDF4 Source Code
