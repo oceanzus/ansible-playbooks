@@ -2,10 +2,10 @@
 
 - name: Setup Developer Account
   user: name=dev state=present
-  sudo: yes
+  sudo: no
 
 - name: Setup SSH Keys
-  sudo: yes
+  sudo: no
   sudo_user: dev
   authorized_key: user=dev key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
@@ -16,15 +16,15 @@
     - ctags-etags.x86_64
     - tmux.x86_64
     - java-1.7.0-openjdk-devel.x86_64
-  sudo: yes
+  sudo: no
 
 - name: Install Development Tools
   yum: name="@Development tools" state=present
-  sudo: yes
+  sudo: no
 
 - name: Check for Virtualenv
   stat: path=/home/dev/.venvburrito/startup.sh
-  sudo: yes
+  sudo: no
   sudo_user: dev
   register: virtualenv
 
@@ -35,7 +35,7 @@
 
 - name: Check for VIM Configuration
   stat: path=/home/dev/.vim
-  sudo: yes
+  sudo: no
   sudo_user: dev
   register: vim
 
