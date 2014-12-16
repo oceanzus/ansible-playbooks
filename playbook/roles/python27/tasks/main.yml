@@ -2,7 +2,7 @@
 
 - name: Install System Packages
   yum: name={{ item }} state=present
-  sudo: yes
+  sudo: no
   with_items:
     #    - gcc-devel
     - gcc
