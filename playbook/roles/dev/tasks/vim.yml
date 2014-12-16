@@ -3,7 +3,7 @@
 - name: Install Luke's VIM
   sudo: no
   sudo_user: dev
-  git: repo=git://github.com/lukecampbell/vim-folder dest=/home/dev/.vim accept_hostkey=true update=yes
+  git: repo=git://github.com/lukecampbell/vim-folder dest=/root/.vim accept_hostkey=true update=yes
 
 - name: Submodules
   sudo: no
