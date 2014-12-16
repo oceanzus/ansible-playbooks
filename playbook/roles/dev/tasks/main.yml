@@ -1,13 +1,13 @@
 ---
 
 - name: Setup Developer Account
-  user: name=dev state=present
+  user: name=root state=present
   sudo: no
 
 - name: Setup SSH Keys
   sudo: no
   sudo_user: dev
-  authorized_key: user=dev key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  authorized_key: user=root key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 
 - name: Install standard development toolset
@@ -23,7 +23,7 @@
   sudo: no
 
 - name: Check for Virtualenv
-  stat: path=/home/dev/.venvburrito/startup.sh
+  stat: path=/root/.venvburrito/startup.sh
   sudo: no
   sudo_user: dev
   register: virtualenv
@@ -34,7 +34,7 @@
 - include: rvm.yml
 
 - name: Check for VIM Configuration
-  stat: path=/home/dev/.vim
+  stat: path=/root/.vim
   sudo: no
   sudo_user: dev
   register: vim

@@ -10,10 +10,10 @@
   sudo_user: dev
   shell: git submodule update
   args:
-    chdir: /home/dev/.vim
+    chdir: /root/.vim
 
 - name: Remove vim-go
   sudo: no
   sudo_user: dev
-  file: path=/home/dev/.vim/bundle/vim-go state=absent
+  file: path=/root/.vim/bundle/vim-go state=absent
 

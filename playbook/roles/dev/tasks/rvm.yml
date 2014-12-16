@@ -5,11 +5,11 @@
   sudo_user: dev
   shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
   args:
-    chdir: /home/dev
+    chdir: /root
 
 - name: Install RVM
   sudo: no
   sudo_user: dev
   shell: curl -sSL https://get.rvm.io | /bin/bash -s stable
   args:
-    chdir: /home/dev
+    chdir: /root
