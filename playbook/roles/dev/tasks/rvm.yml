@@ -2,14 +2,14 @@
 
 - name: A really lame workaround because RVM's key isn't properly checked
   sudo: no
-  sudo_user: dev
+  sudo_user: root
   shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
   args:
     chdir: /root
 
 - name: Install RVM
   sudo: no
-  sudo_user: dev
+  sudo_user: root
   shell: curl -sSL https://get.rvm.io | /bin/bash -s stable
   args:
     chdir: /root
