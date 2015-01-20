@@ -4,23 +4,23 @@
   user: name=root state=present
   sudo: no
 
-- #name: Setup SSH Keys
-  #sudo: no
-  #sudo_user: root
-  #authorized_key: user=root key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+#- name: Setup SSH Keys
+#  sudo: no
+#  sudo_user: root
+#  authorized_key: user=root key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 
-- name: Install standard development toolset
-  yum: name={{ item }} state=present
-  with_items: 
-    - ctags-etags.x86_64
-    - tmux.x86_64
-    - java-1.7.0-openjdk-devel.x86_64
-  sudo: no
+#- name: Install standard development toolset
+#  yum: name={{ item }} state=present
+#  with_items:
+#    - ctags-etags.x86_64
+#    - tmux.x86_64
+#    - java-1.7.0-openjdk-devel.x86_64
+#  sudo: no
 
-- name: Install Development Tools
-  yum: name="@Development tools" state=present
-  sudo: no
+#- name: Install Development Tools
+#  yum: name="@Development tools" state=present
+#  sudo: no
 
 - name: Check for Virtualenv
   stat: path=/root/.venvburrito/startup.sh
