@@ -4,10 +4,10 @@
   user: name=root state=present
   sudo: no
 
-- name: Setup SSH Keys
-  sudo: no
+- #name: Setup SSH Keys
+  #sudo: no
   #sudo_user: root
-  authorized_key: user=root key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  #authorized_key: user=root key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 
 - name: Install standard development toolset
